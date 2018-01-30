@@ -1,5 +1,6 @@
 package jUnitTest;
 
+import com.jsystems.models.Person;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -25,5 +26,10 @@ public class ExceptionTest {
         assertTrue(listaStringow.get(0).equals("asdasdasd"));
     }
 
+    Person person = new Person("Adam", 14);
+    @Test (expected = IllegalArgumentException.class)
+    public void testIllegalArgumentException(){
+        new Person("Janina", -1);
+    }
 
 }

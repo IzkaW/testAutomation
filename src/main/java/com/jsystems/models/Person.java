@@ -10,7 +10,7 @@ public class Person {
         this.name = name;
         this.age = age;
         if(age <= 0){
-            throw new IllegalArgumentException("Invalid Age" +age);
+            throw new IllegalArgumentException("Invalid Age" + age);
         }
     }
 }
