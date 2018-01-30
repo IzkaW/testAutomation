@@ -75,6 +75,7 @@ public class FirstJUnitTest extends ConfigJUnit {
        // assertTrue((ala == ala2));
        // assertTrue(ala.equals(ala2));
         // assertTrue(beta.equals(ala2));
+        // assertTrue(beta.equals(ala2));
 
     }
 
