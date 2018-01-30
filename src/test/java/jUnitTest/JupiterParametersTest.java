@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 public class JupiterParametersTest {
     @DisplayName("=== jupiter parameters ====")
@@ -20,6 +21,9 @@ public class JupiterParametersTest {
 
         assertTrue(listaStringow.contains(tekst));
         assertTrue(listaIntegerow.contains(integer));
+
+        assertFalse(listaStringow.equals(tekst));
+        assertFalse(listaIntegerow.equals(integer));
     }
 
 
