@@ -44,7 +44,7 @@ public class ParametrizedJUnitTest {
         public void combinedParam(String first, String second){
 
             String results = first + second;
-            System.out.println(results);
+            System.out.println(first + " , " + second);
             assertTrue(results.contains("1")  || results.contains("3") );
             assertTrue(results.contains("2")  || results.contains("4") );
         }
