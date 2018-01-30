@@ -22,8 +22,8 @@ public class JupiterParametersTest {
         assertTrue(listaStringow.contains(tekst));
         assertTrue(listaIntegerow.contains(integer));
 
-        assertFalse(listaStringow.equals(tekst));
-        assertFalse(listaIntegerow.equals(integer));
+      //  assertFalse(listaStringow.equals(tekst));
+      //  assertFalse(listaIntegerow.equals(integer));
     }
 
 
