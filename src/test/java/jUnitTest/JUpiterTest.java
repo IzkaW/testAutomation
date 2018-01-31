@@ -7,6 +7,7 @@ import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static junit.framework.TestCase.assertTrue;
 
@@ -52,6 +53,12 @@ public class JUpiterTest extends ConfigJupiter {
         public void csvTest(String name, Integer age){
             assertTrue(name instanceof String);
             assertTrue(age instanceof Integer);
+        }
+
+        @ParameterizedTest
+        @ValueSource(ints = {1,2,3,4})
+        public void withValueSourceTest(int value){
+            assertTrue(value < 100);
         }
     }
 
