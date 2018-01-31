@@ -5,6 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static junit.framework.TestCase.assertTrue;
 
@@ -38,12 +40,19 @@ public class JUpiterTest extends ConfigJupiter {
 
         @Test
         @DisplayName("===to jest test jupitera===")
-        @RepeatedTest(5)
+        @RepeatedTest(2)
         public void jupiterNextTest2(){
-            System.out.println("jupiter");
+            System.out.println("jupiter2");
             assertTrue(5*4 == 20);
         }
 
+        @ParameterizedTest
+        @DisplayName("Test z CSV")
+        @CsvFileSource(resources = "/plik.csv")
+        public void csvTest(String name, Integer age){
+            assertTrue(name instanceof String);
+            assertTrue(age instanceof Integer);
+        }
     }
 
 }
