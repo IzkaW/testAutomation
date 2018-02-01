@@ -10,6 +10,10 @@ public class MyObj {
         this.surname = surname;
     }
 
+    public MyObj() {
+
+    }
+
     @Override
     public String toString() {
         return "MyObj{" +
