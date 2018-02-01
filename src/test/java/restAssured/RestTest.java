@@ -55,6 +55,7 @@ public class RestTest {
                 .assertThat()
                 .statusCode(200)
                 .extract()
+                .body()
                 .jsonPath();
 
         System.out.println(jsonPath);
