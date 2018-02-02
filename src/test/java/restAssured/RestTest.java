@@ -3,9 +3,11 @@ package restAssured;
 import com.jsystems.models.ErrorResponse;
 import com.jsystems.models.MyObj;
 import com.jsystems.models.User;
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
@@ -177,6 +179,31 @@ public class RestTest extends Config {
         assertTrue(errorResponse.error.error_code == 400);
         assertThat(errorResponse.error.validation_erro).isEqualTo("invalid_email");
         assertThat(errorResponse.error.message).isEqualTo("your email is invalid");
+    }
+
+    @Test
+    public void specBuild(){
+
+        RequestSpecification requestSpecification = new RequestSpecBuilder()
+                .addCookie("sdf", "zxcv")
+                .addHeader("Authorization", "werwuieyrwuyerweyr")
+                .setBaseUri("http://www.onet.pl")
+                .build();
+
+        Response response = given()
+                .spec(requestSpecification)
+                .when()
+                .get("/5a6b77973100009d211b8b0d")
+                .andReturn();
+
+        MyObj myObj = response
+                .then()
+                .extract()
+                .body()
+                .as(MyObj.class);
+
+        assertThat(myObj.name).isEqualTo("Piotr");
+
     }
 
 }
