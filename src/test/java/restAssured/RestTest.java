@@ -1,5 +1,6 @@
 package restAssured;
 
+import com.jsystems.models.ErrorResponse;
 import com.jsystems.models.MyObj;
 import com.jsystems.models.User;
 import io.restassured.http.ContentType;
@@ -125,6 +126,8 @@ public class RestTest extends Config {
         Response response = given()
                 .contentType(ContentType.JSON)
                 .when()
+                .queryParam("name", "Piotr")
+                .queryParam("surname", "Kowalski")
                 .get("/5a6a58222e0000d0377a7789")
                 .andReturn();
 
@@ -139,6 +142,41 @@ public class RestTest extends Config {
            assertThat(users.get(0).device.get(0).deviceModel.get(0).produce).isEqualTo("dell");
 
     }
+    @Test
+    public void postTest(){
+        Response response = given()
+                .when()
+                .body(new MyObj("Rafal", "Wrobel"))
+                .post("/5a690a1b2e000051007a73cb")
+                .andReturn();
 
+        String responsePostEmptyTable = Arrays.asList(response
+                .then()
+                .statusCode(201)
+                .extract()
+                .body()
+                .as(String[].class)).toString();
+
+        assertThat(responsePostEmptyTable).isEqualTo("[]");
+    }
+
+    @Test
+    public void errorTest(){
+        Response response = given()
+                .contentType(ContentType.JSON)
+                .when()
+                .post("/5a690b452e000054007a73cd")
+                .andReturn();
+
+        ErrorResponse errorResponse = response
+                .then()
+                .extract()
+                .body()
+                .as(ErrorResponse.class);
+
+        assertTrue(errorResponse.error.error_code == 400);
+        assertThat(errorResponse.error.validation_erro).isEqualTo("invalid_email");
+        assertThat(errorResponse.error.message).isEqualTo("your email is invalid");
+    }
 
 }
