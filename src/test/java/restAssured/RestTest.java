@@ -184,11 +184,11 @@ public class RestTest extends Config {
     @Test
     public void specBuild(){
 
-        RequestSpecification requestSpecification = new RequestSpecBuilder()
-                .addCookie("sdf", "zxcv")
-                .addHeader("Authorization", "werwuieyrwuyerweyr")
-                .setBaseUri("http://www.onet.pl")
-                .build();
+ //       RequestSpecification requestSpecification = new RequestSpecBuilder()
+ //               .addCookie("sdf", "zxcv")
+ //               .addHeader("Authorization", "werwuieyrwuyerweyr")
+ //               .setBaseUri("http://www.onet.pl")
+ //               .build();
 
         Response response = given()
                 .spec(requestSpecification)
