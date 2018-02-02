@@ -10,7 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 public class Config {
 
 
-    RequestSpecification requestSpecification = new RequestSpecBuilder()
+   public RequestSpecification requestSpecification = new RequestSpecBuilder()
   //          .addCookie("sdf", "zxcv")
   //          .addHeader("Authorization", "werwuieyrwuyerweyr")
   //         .setBaseUri("http://www.onet.pl")
