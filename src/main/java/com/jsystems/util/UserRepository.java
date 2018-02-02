@@ -11,17 +11,20 @@ import java.util.List;
 public class UserRepository {
 
     public List<UserMock> getAll(){
-
+        List<UserMock> users = new ArrayList<>();
 
         try {
             Statement statement = DatabaseConnector.getConnection().createStatement();
             String sql = "select * from usermock";
             ResultSet resultSet = statement.executeQuery(sql);
-
+            users = ladujDane(resultSet);
+            resultSet.close();
+            statement.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return users;
 
     }
 
