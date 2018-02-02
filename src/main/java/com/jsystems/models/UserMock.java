@@ -6,6 +6,15 @@ public class UserMock {
     public String name;
     public String surname;
 
+    @Override
+    public String toString() {
+        return "UserMock{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
+    }
+
     public Long getId() {
         return id;
     }
