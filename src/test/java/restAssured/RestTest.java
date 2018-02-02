@@ -11,7 +11,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 
 
-public class RestTest {
+public class RestTest extends Config {
 
     @Test
     public void firstTest(){
